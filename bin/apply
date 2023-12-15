@@ -1,0 +1,16 @@
+#!/usr/bin/env zsh
+set -e
+cd "${0:h}/.."
+
+generate() {
+  local template="$1"
+  local dir="$(mktemp --directory --quiet --tmpdir=tmp "${template}.XXXXXX")"
+  nix flake new --template "templates#$template" "$dir"
+}
+
+if [[ "$#" -ne 1 ]]; then
+  echo >&2 "Usage: $0 <template>"
+  exit 1
+fi
+
+generate "$1"

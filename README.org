@@ -1,0 +1,11 @@
+#+title: Templates
+
+Tastefully appointed projects, powered by Nix.
+
+#+begin_src sh :eval never
+nix flake init --template github:jcf/templates#clojure
+#+end_src
+
+#+begin_src sh :eval never
+nix flake new --template github:jcf/templates#clojure <project>
+#+end_src
