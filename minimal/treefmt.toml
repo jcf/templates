@@ -1,3 +1,8 @@
+[formatter.just]
+command = "just"
+options = ["--unstable", "--fmt", "--justfile"]
+includes = ["justfile"]
+
 [formatter.nix]
 command = "alejandra"
 includes = ["*.nix"]
