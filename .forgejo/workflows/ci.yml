@@ -12,4 +12,15 @@ jobs:
     runs-on: nixos
     steps:
       - uses: actions/checkout@v4
-      - run: nix flake check --no-warn-dirty
+
+      - name: Configure Attic
+        env:
+          ATTIC_TOKEN: ${{ secrets.ATTIC_TOKEN }}
+        run: .forgejo/scripts/attic-setup.sh
+
+      - name: nix flake check
+        run: nix flake check --no-warn-dirty
+
+      - name: Push to Attic
+        if: success()
+        run: .forgejo/scripts/attic-push.sh
