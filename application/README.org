@@ -1,3 +1,4 @@
-#+title: Clojure
+#+title: Application
 
 Run =nix develop= to enter the dev shell (automatic via direnv).
+Run =just dev= to start =process-compose=.

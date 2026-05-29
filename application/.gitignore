@@ -1,4 +1,5 @@
 /.claude/settings.json
 /.direnv
 /.envrc.local
+/data
 /result
